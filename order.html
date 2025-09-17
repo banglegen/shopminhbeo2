@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đặt hàng</title>
+  <link rel="stylesheet" href="style-order.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+  <h1>📝 Đặt hàng</h1>
+</header>
+
+<div class="container">
+  <h2>Chi tiết đơn hàng</h2>
+  <div class="order-summary">
+    <ul id="order-list"></ul>
+    <p><strong>Tổng tiền: </strong><span id="order-total">0</span> đ</p>
+  </div>
+
+  <form id="order-form">
+    <label>Họ và tên</label>
+    <input id="customer-name" type="text" placeholder="Nhập họ tên" required>
+
+    <label>Số điện thoại</label>
+    <input id="customer-phone" type="tel" placeholder="Nhập số điện thoại" required>
+
+    <label>Địa chỉ giao hàng</label>
+    <textarea id="customer-address" placeholder="Nhập địa chỉ đầy đủ" required></textarea>
+
+    <label>Phương thức thanh toán</label>
+    <select id="customer-payment">
+      <option>Thanh toán khi nhận hàng (COD)</option>
+      <option>Chuyển khoản ngân hàng</option>
+      <option>Ví điện tử (Momo, ZaloPay,...)</option>
+    </select>
+
+    <button type="submit">Xác nhận đặt hàng</button>
+  </form>
+</div>
+
+<!-- Toast thông báo -->
+<div id="toast"></div>
+
+</body>
+</html>
