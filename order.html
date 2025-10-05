@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đặt hàng</title>
+  <link rel="stylesheet" href="style-order.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<header>
+  <h1>📝 Đặt hàng</h1>
+</header>
+
+<div class="container">
+  <h2>Chi tiết đơn hàng</h2>
+  <div class="order-summary">
+    <ul id="order-list"></ul>
+    <p><strong>Tổng tiền: </strong><span id="order-total">0</span> đ</p>
+  </div>
+
+  <form id="order-form">
+    <label>Họ và tên</label>
+    <input type="text" placeholder="Nhập họ tên" required>
+
+    <label>Số điện thoại</label>
+    <input type="tel" placeholder="Nhập số điện thoại" required>
+
+    <label>Địa chỉ giao hàng</label>
+    <textarea placeholder="Nhập địa chỉ đầy đủ" required></textarea>
+
+    <label>Phương thức thanh toán</label>
+    <select>
+      <option>Thanh toán khi nhận hàng (COD)</option>
+      <option>Chuyển khoản ngân hàng</option>
+      <option>Ví điện tử (Momo, ZaloPay,...)</option>
+    </select>
+
+    <button type="submit">Xác nhận đặt hàng</button>
+  </form>
+</div>
+
+<div id="toast">Đặt hàng thành công 🎉</div>
+
+<script>
+  
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let list = document.getElementById("order-list");
+  let total = cart.reduce((sum, p) => sum + p.price * p.quantity, 0);
+  list.innerHTML = cart.map(p => 
+    `<li><span>${p.name} x ${p.quantity}</span><span>${(p.price * p.quantity).toLocaleString()} đ</span></li>`
+  ).join("");
+  document.getElementById("order-total").textContent = total.toLocaleString();
+
+  document.getElementById("order-form").addEventListener("submit", function(e){
+    e.preventDefault(); 
+    showToast("Đặt hàng thành công 🎉");
+    localStorage.removeItem("cart"); 
+  });
+
+  function showToast(msg) {
+    let toast = document.getElementById("toast");
+    toast.textContent = msg;
+    toast.className = "show";
+    setTimeout(() => {
+      toast.className = toast.className.replace("show", "");
+    }, 3000); 
+  }
+</script>
+
+
+</body>
+</html>

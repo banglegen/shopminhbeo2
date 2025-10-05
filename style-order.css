@@ -1,0 +1,128 @@
+/* Reset nhẹ */
+body, h1, h2, p, ul, li, input, textarea, select, button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #fff7f0; /* nền nhẹ cam nhạt */
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Header */
+header {
+  background: #ff6600; /* cam */
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+/* Container chính */
+.container {
+  max-width: 600px;
+  margin: 30px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Order summary */
+.order-summary {
+  background: #fff2e6;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ffcc99;
+}
+
+.order-summary ul {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.order-summary li {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.order-summary p {
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #cc5200;
+}
+
+/* Form */
+form label {
+  display: block;
+  margin-top: 12px;
+  font-weight: bold;
+  color: #cc5200;
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+  border-color: #ff6600;
+}
+
+/* Nút xác nhận */
+form button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: #ff6600;
+  color: white;
+  font-size: 1.1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #e65c00;
+}
+
+/* Toast thông báo */
+#toast {
+  visibility: hidden;
+  min-width: 220px;
+  background: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 12px;
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.5s, bottom 0.5s;
+}
+
+#toast.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 50px;
+}
